@@ -27,7 +27,7 @@ function Login({ onLogin }) {
             setMessage('Login successful!');
             setIsSuccess(true);
         } catch (error) {
-            setMessage(error.response ? .data ? .message || 'Login failed');
+            setMessage(error.response?.data?.message || 'Login failed');
             setIsSuccess(false);
         }
     };

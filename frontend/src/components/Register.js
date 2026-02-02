@@ -19,17 +19,20 @@ function Register() {
         });
     };
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+      
         try {
-            const response = await api.post('/auth/register', formData);
-            setMessage('Registration successful! Please login.');
-            setIsSuccess(true);
+          await api.post('/auth/register', formData);
+      
+          setMessage('Registration successful! Please login.');
+          setIsSuccess(true);
         } catch (error) {
-            setMessage(error.response ? .data ? .message || 'Registration failed');
-            setIsSuccess(false);
+          setMessage(error.response?.data?.message || 'Registration failed');
+          setIsSuccess(false);
         }
-    };
+      };
+      
 
     return ( <
         div className = "auth-container" >

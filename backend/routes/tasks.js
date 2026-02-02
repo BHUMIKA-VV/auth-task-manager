@@ -9,7 +9,7 @@ router.use(protect);
 
 /**
  * @swagger
- * /api/v1/tasks:
+ * /tasks:
  *   get:
  *     summary: Get all tasks
  *     tags: [Tasks]
@@ -60,7 +60,7 @@ router.get('/', async(req, res) => {
 
 /**
  * @swagger
- * /api/v1/tasks:
+ * /tasks:
  *   post:
  *     summary: Create a new task
  *     tags: [Tasks]
@@ -110,7 +110,7 @@ router.post('/', async(req, res) => {
 
 /**
  * @swagger
- * /api/v1/tasks/{id}:
+ * tasks/{id}:
  *   get:
  *     summary: Get a single task
  *     tags: [Tasks]
@@ -159,7 +159,7 @@ router.get('/:id', async(req, res) => {
 
 /**
  * @swagger
- * /api/v1/tasks/{id}:
+ * tasks/{id}:
  *   put:
  *     summary: Update a task
  *     tags: [Tasks]
@@ -226,7 +226,7 @@ router.put('/:id', async(req, res) => {
 
 /**
  * @swagger
- * /api/v1/tasks/{id}:
+ * tasks/{id}:
  *   delete:
  *     summary: Delete a task
  *     tags: [Tasks]

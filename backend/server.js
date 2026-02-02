@@ -20,19 +20,39 @@ connectDB();
 const swaggerDefinition = {
     openapi: '3.0.0',
     info: {
-        title: 'Scalable REST API',
-        version: '1.0.0',
-        description: 'API with Authentication & Role-Based Access',
+      title: 'Scalable REST API',
+      version: '1.0.0',
+      description: 'API with Authentication & Role-Based Access',
     },
-    servers: [{
-        url: 'http://localhost:5000/api/v1',
-    }, ],
-};
+    servers: [
+      {
+        url: '/api/v1',
+      },
+    ],
+  
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+  
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
+  };
+  
+  
 
-const options = {
-    swaggerDefinition,
+  const options = {
+    definition: swaggerDefinition, // 👈 THIS IS THE KEY FIX
     apis: ['./routes/*.js'],
-};
+  };
 
 const specs = swaggerJsdoc(options);
 
